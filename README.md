@@ -1,6 +1,13 @@
 # ClaudeTools
 
-Collection de prompts système et d'outils réutilisables pour Claude.
+Collection de prompts système et d'outils réutilisables pour Claude, plus une
+**app web** pour les utiliser en chat.
+
+## App — discuter avec les outils
+
+| Dossier | Description |
+| --- | --- |
+| [`app/`](app/) | Plateforme web : on choisit un outil et on lui parle directement (chat en streaming via l'API Claude). La clé API reste côté serveur. Démarrage : `cd app && npm install && cp .env.example .env && npm run dev` → http://localhost:3000. Voir [`app/README.md`](app/README.md). |
 
 ## Prompts
 

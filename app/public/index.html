@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClaudeTools</title>
+  <meta name="description" content="Vos outils Claude, accessibles en chat depuis un seul endroit." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar : catalogue d'outils -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <span class="brand__dot"></span>
+        <span>ClaudeTools</span>
+      </div>
+      <p class="sidebar__label">Outils</p>
+      <nav class="tool-list" id="toolList" aria-label="Liste des outils"></nav>
+      <div class="sidebar__foot">
+        <span class="status" id="status"></span>
+      </div>
+    </aside>
+
+    <!-- Panneau principal -->
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn topbar__menu" id="menuBtn" aria-label="Menu">☰</button>
+        <div class="topbar__title" id="topbarTitle">Choisissez un outil</div>
+        <div class="topbar__actions">
+          <button class="ghost-btn" id="viewPromptBtn" hidden>Voir le prompt</button>
+          <button class="ghost-btn" id="newChatBtn" hidden>Nouvelle conversation</button>
+        </div>
+      </header>
+
+      <section class="chat" id="chat">
+        <!-- État vide / accueil d'un outil -->
+        <div class="welcome" id="welcome">
+          <div class="welcome__icon">🛠️</div>
+          <h1 class="welcome__title">Vos outils Claude, en un seul endroit.</h1>
+          <p class="welcome__sub">Sélectionnez un outil à gauche pour démarrer une conversation.</p>
+        </div>
+        <div class="messages" id="messages" hidden></div>
+      </section>
+
+      <footer class="composer" id="composer" hidden>
+        <div class="composer__inner">
+          <textarea
+            id="input"
+            class="composer__input"
+            rows="1"
+            placeholder="Décrivez ce que vous voulez créer…"
+          ></textarea>
+          <button class="send-btn" id="sendBtn" aria-label="Envoyer">↑</button>
+        </div>
+        <p class="composer__hint">Entrée pour envoyer · Maj+Entrée pour un saut de ligne</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Modal : prompt système -->
+  <div class="modal" id="promptModal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Prompt système">
+      <div class="modal__head">
+        <h2 id="promptModalTitle">Prompt système</h2>
+        <div class="modal__head-actions">
+          <button class="ghost-btn" id="copyPromptBtn">Copier</button>
+          <button class="icon-btn" data-close aria-label="Fermer">✕</button>
+        </div>
+      </div>
+      <pre class="modal__body" id="promptBody"></pre>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
