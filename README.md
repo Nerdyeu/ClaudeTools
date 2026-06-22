@@ -8,6 +8,12 @@ Collection de prompts système et d'outils réutilisables pour Claude.
 | --- | --- |
 | [`prompts/studio-creation-mode-consultant.md`](prompts/studio-creation-mode-consultant.md) | Studio de création (mode consultant) — binôme directeur de création + stratège de contenu. Spécialités : vidéo, sites web / landing pages, idées & stratégie. Diagnostique avant de produire. À coller comme instruction système ou instructions d'un Projet Claude. |
 
+## Sites
+
+| Dossier | Description |
+| --- | --- |
+| [`site/`](site/) | **SIGNAL** — site vitrine du studio de création (dark premium, animé, responsive). Full-service vidéo · web · stratégie. HTML/CSS/JS pur, sans framework. Ouvre `site/index.html` dans un navigateur pour le prévisualiser. |
+
 ## Comment utiliser un prompt
 
 1. Ouvre le fichier `.md` du prompt voulu.

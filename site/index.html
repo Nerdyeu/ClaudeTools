@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIGNAL — Studio de création · vidéo, web & stratégie</title>
+  <meta name="description" content="SIGNAL est un studio de création full-service. Vidéo, sites web et stratégie pour les marques, artisans et créateurs qui veulent qu'on les remarque, qu'on les retienne et qu'on les choisisse." />
+  <meta property="og:title" content="SIGNAL — Studio de création" />
+  <meta property="og:description" content="Tout le monde fait du bruit. On vous rend audible. Vidéo · Web · Stratégie." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Ambient background -->
+  <div class="bg-fx" aria-hidden="true">
+    <span class="blob blob--violet"></span>
+    <span class="blob blob--cyan"></span>
+    <span class="blob blob--lime"></span>
+    <span class="grain"></span>
+  </div>
+
+  <!-- Nav -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#home" class="brand" aria-label="SIGNAL, accueil">
+        <span class="brand__dot"></span>SIGNAL
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Navigation principale">
+        <a href="#services">Services</a>
+        <a href="#work">Réalisations</a>
+        <a href="#method">Méthode</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn btn--ghost btn--sm">Démarrer un projet</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="container">
+        <p class="eyebrow reveal">Studio de création — vidéo · web · stratégie</p>
+        <h1 class="hero__title reveal">
+          Arrêtez d'être <span class="strike">scrollé</span>.
+          <span class="accent">Devenez le signal.</span>
+        </h1>
+        <p class="hero__lead reveal">
+          Votre client voit passer des milliers de messages par jour. Il en retient trois.
+          On conçoit la vidéo, le site et l'angle qui font partie de ces trois-là —
+          ceux qu'on remarque, qu'on retient et qu'on finit par choisir.
+        </p>
+        <div class="hero__cta reveal">
+          <a href="#work" class="btn btn--primary">Voir nos réalisations</a>
+          <a href="#contact" class="btn btn--ghost">Démarrer un projet</a>
+        </div>
+
+        <ul class="stats reveal" aria-label="Quelques chiffres">
+          <li><strong data-count="150" data-suffix="+">0</strong><span>projets livrés</span></li>
+          <li><strong data-count="48" data-suffix="h">0</strong><span>pour un premier concept</span></li>
+          <li><strong data-count="92" data-suffix="%">0</strong><span>de clients qui reviennent</span></li>
+          <li><strong data-count="3" data-prefix="×">0</strong><span>de portée en moyenne</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Vidéo</span><span>•</span><span>Landing pages</span><span>•</span><span>Stratégie de contenu</span><span>•</span><span>Branding</span><span>•</span><span>Scripts</span><span>•</span><span>Identité</span><span>•</span><span>Direction artistique</span><span>•</span>
+        <span>Vidéo</span><span>•</span><span>Landing pages</span><span>•</span><span>Stratégie de contenu</span><span>•</span><span>Branding</span><span>•</span><span>Scripts</span><span>•</span><span>Identité</span><span>•</span><span>Direction artistique</span><span>•</span>
+      </div>
+    </div>
+
+    <!-- Manifesto / angle -->
+    <section class="manifesto">
+      <div class="container manifesto__grid">
+        <h2 class="reveal">Le problème, ce n'est pas vous.<br />C'est le bruit.</h2>
+        <div class="manifesto__body reveal">
+          <p>
+            La plupart des contenus ne ratent pas parce qu'ils sont laids. Ils ratent parce qu'ils
+            ressemblent à tout le reste : un message qu'on pourrait coller sur n'importe quelle marque
+            sans que personne ne le remarque.
+          </p>
+          <p>
+            Notre travail commence avant la production : trouver l'angle que vos concurrents n'ont pas,
+            puis le rendre impossible à ignorer — en vidéo, sur votre site, dans votre stratégie.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Ce qu'on fait</p>
+          <h2>Trois leviers, une seule obsession : qu'on vous remarque.</h2>
+        </header>
+
+        <div class="cards">
+          <article class="card reveal">
+            <span class="card__num">01</span>
+            <h3>Vidéo</h3>
+            <p class="card__claim">Des vidéos qu'on regarde jusqu'au bout.</p>
+            <p class="card__desc">
+              Concepts, hooks, scripts et formats — du short-form qui retient au format long qui installe
+              votre autorité. On écrit pour la rétention, pas pour remplir.
+            </p>
+            <ul class="card__list">
+              <li>Concepts &amp; hooks (3 à 5 variantes)</li>
+              <li>Scripts &amp; storyboards</li>
+              <li>Formats YouTube, Reels, TikTok, pub</li>
+              <li>Direction &amp; cadrage éditorial</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <span class="card__num">02</span>
+            <h3>Sites &amp; Landing</h3>
+            <p class="card__claim">Des pages qui transforment le clic en client.</p>
+            <p class="card__desc">
+              Structure, copy et design pensés pour la conversion. Chaque section a une raison d'exister
+              et un seul cap : l'action qu'on veut déclencher.
+            </p>
+            <ul class="card__list">
+              <li>Architecture orientée conversion</li>
+              <li>Copywriting bénéfice par bénéfice</li>
+              <li>Design &amp; intégration responsive</li>
+              <li>Pages prêtes à recevoir du trafic</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <span class="card__num">03</span>
+            <h3>Idées &amp; Stratégie</h3>
+            <p class="card__claim">Un angle que vos concurrents n'ont pas.</p>
+            <p class="card__desc">
+              Positionnement, concepts et plan de contenu. On part du vrai problème, pas du symptôme,
+              et on repart avec un cap clair et le plus petit test pour le valider vite.
+            </p>
+            <ul class="card__list">
+              <li>Positionnement &amp; angle de marque</li>
+              <li>Concepts de campagne</li>
+              <li>Plan de contenu éditorial</li>
+              <li>Naming &amp; territoire de marque</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio / work -->
+    <section class="work" id="work">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Réalisations</p>
+          <h2>Du premier client local au scale-up.</h2>
+          <p class="section-sub">Un échantillon. Filtrez par type de projet.</p>
+        </header>
+
+        <div class="filters reveal" role="tablist" aria-label="Filtrer les réalisations">
+          <button class="filter is-active" data-filter="all">Tout</button>
+          <button class="filter" data-filter="video">Vidéo</button>
+          <button class="filter" data-filter="web">Web</button>
+          <button class="filter" data-filter="strategie">Stratégie</button>
+        </div>
+
+        <div class="work__grid" id="workGrid">
+          <article class="work-card reveal" data-cat="video" style="--g1:#7c5cff;--g2:#3ad6ff">
+            <div class="work-card__media"><span class="work-card__tag">Vidéo</span></div>
+            <div class="work-card__body">
+              <h3>Lancement produit en 6 shorts</h3>
+              <p>Série short-form pour une marque DTC — concept, scripts et hooks. +210 % de vues sur 30 jours.</p>
+            </div>
+          </article>
+
+          <article class="work-card reveal" data-cat="web" style="--g1:#c8f64e;--g2:#2ee6a8">
+            <div class="work-card__media"><span class="work-card__tag">Web</span></div>
+            <div class="work-card__body">
+              <h3>Landing pour un artisan menuisier</h3>
+              <p>Une page, un objectif : la demande de devis. Taux de contact passé de 1,2 % à 4,8 %.</p>
+            </div>
+          </article>
+
+          <article class="work-card reveal" data-cat="strategie" style="--g1:#ff7eb6;--g2:#7c5cff">
+            <div class="work-card__media"><span class="work-card__tag">Stratégie</span></div>
+            <div class="work-card__body">
+              <h3>Repositionnement d'un cabinet conseil</h3>
+              <p>Nouvel angle, nouveau récit, plan de contenu sur 90 jours. Un message enfin différenciant.</p>
+            </div>
+          </article>
+
+          <article class="work-card reveal" data-cat="video" style="--g1:#3ad6ff;--g2:#c8f64e">
+            <div class="work-card__media"><span class="work-card__tag">Vidéo</span></div>
+            <div class="work-card__body">
+              <h3>Format YouTube pour un créateur</h3>
+              <p>Une trame récurrente conçue pour la rétention. Durée de visionnage moyenne x2.</p>
+            </div>
+          </article>
+
+          <article class="work-card reveal" data-cat="web" style="--g1:#ffb14e;--g2:#ff5e7e">
+            <div class="work-card__media"><span class="work-card__tag">Web</span></div>
+            <div class="work-card__body">
+              <h3>Site vitrine pour un restaurant</h3>
+              <p>Identité, copy et réservation en ligne. Image enfin à la hauteur de l'assiette.</p>
+            </div>
+          </article>
+
+          <article class="work-card reveal" data-cat="strategie" style="--g1:#7c5cff;--g2:#2ee6a8">
+            <div class="work-card__media"><span class="work-card__tag">Stratégie</span></div>
+            <div class="work-card__body">
+              <h3>Plan de contenu pour une influenceuse</h3>
+              <p>Du calendrier aux concepts piliers. Une ligne éditoriale qui ne dépend plus de l'inspiration.</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="work__note reveal">Projets illustratifs — à remplacer par vos vraies études de cas.</p>
+      </div>
+    </section>
+
+    <!-- Method -->
+    <section class="method" id="method">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Méthode</p>
+          <h2>On diagnostique avant de produire.</h2>
+          <p class="section-sub">Pas de création à l'aveugle. Un cadrage net, puis on exécute vite.</p>
+        </header>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step__num">01</span>
+            <h3>Diagnostic</h3>
+            <p>On cadre l'intention réelle : objectif, audience, ce qui a déjà été tenté. Le vrai problème, pas le symptôme.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">02</span>
+            <h3>Concept</h3>
+            <p>On pose l'angle et la promesse. Plusieurs paris distincts, une recommandation assumée.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">03</span>
+            <h3>Production</h3>
+            <p>Script, page, campagne. Propre, prêt à l'emploi, au standard du format.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">04</span>
+            <h3>Lancement &amp; mesure</h3>
+            <p>On livre, on mesure, on ajuste la cause — pas le symptôme. Le plus petit test d'abord.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Audience / pour qui -->
+    <section class="audience">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Pour qui</p>
+          <h2>Si vous voulez qu'on vous remarque, on est faits pour vous.</h2>
+        </header>
+        <div class="audience__grid">
+          <article class="pill reveal">
+            <h3>Entreprises &amp; marques</h3>
+            <p>Vous voulez une image à la hauteur de votre niveau réel. On aligne le message, le site et la vidéo.</p>
+          </article>
+          <article class="pill reveal">
+            <h3>Artisans &amp; commerces</h3>
+            <p>Vous faites un travail solide mais on ne vous trouve pas. On vous rend visible là où vos clients cherchent.</p>
+          </article>
+          <article class="pill reveal">
+            <h3>Créateurs &amp; influenceurs</h3>
+            <p>Vous voulez arrêter de dépendre de l'inspiration. On installe des formats et une ligne qui tiennent.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Ils en parlent mieux que nous</p>
+          <h2>La preuve, pas la promesse.</h2>
+        </header>
+        <div class="quotes">
+          <figure class="quote reveal">
+            <blockquote>« On est enfin passés de “joli” à “qui vend”. La première landing a payé le projet en trois semaines. »</blockquote>
+            <figcaption>— Fondatrice, marque DTC</figcaption>
+          </figure>
+          <figure class="quote reveal">
+            <blockquote>« Ils ont trouvé l'angle qu'on cherchait depuis un an. Mes vidéos ressemblent enfin à quelque chose. »</blockquote>
+            <figcaption>— Créateur, 80k abonnés</figcaption>
+          </figure>
+          <figure class="quote reveal">
+            <blockquote>« Premier concept en 48h, et il était juste. On a arrêté de tourner en rond. »</blockquote>
+            <figcaption>— Artisan ébéniste</figcaption>
+          </figure>
+        </div>
+        <p class="work__note reveal">Témoignages illustratifs — à remplacer par les vrais.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Questions fréquentes</p>
+          <h2>On répond avant que vous demandiez.</h2>
+        </header>
+        <div class="accordion">
+          <details class="reveal">
+            <summary>Combien ça coûte ?</summary>
+            <p>Ça dépend du périmètre. On chiffre au projet après un premier appel de cadrage gratuit. Vous repartez avec un prix clair, pas une fourchette floue.</p>
+          </details>
+          <details class="reveal">
+            <summary>En combien de temps je vois quelque chose ?</summary>
+            <p>Un premier concept sous 48h après le brief. La production complète dépend du format — on vous donne un calendrier dès le cadrage.</p>
+          </details>
+          <details class="reveal">
+            <summary>Vous travaillez à distance ?</summary>
+            <p>Oui, partout. Tout se pilote en visio et par écrit. Si votre projet demande un tournage sur place, on s'organise.</p>
+          </details>
+          <details class="reveal">
+            <summary>J'ai déjà une identité de marque. Vous repartez de zéro ?</summary>
+            <p>Non. On part de ce qui marche déjà et on corrige la cause de ce qui coince. On ne refait pas pour refaire.</p>
+          </details>
+          <details class="reveal">
+            <summary>Qu'est-ce que je dois préparer ?</summary>
+            <p>Votre objectif réel, votre audience, et ce que vous avez déjà tenté. Le reste, on le creuse ensemble au cadrage.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / CTA final -->
+    <section class="contact" id="contact">
+      <div class="container contact__inner">
+        <div class="contact__pitch reveal">
+          <h2>On regarde votre projet ?</h2>
+          <p>Dites-nous où vous en êtes. On revient avec une première lecture — et un angle — sous 48h.</p>
+          <ul class="contact__bullets">
+            <li>Appel de cadrage gratuit</li>
+            <li>Un prix clair, pas une fourchette</li>
+            <li>Aucun engagement</li>
+          </ul>
+        </div>
+
+        <form class="contact__form reveal" id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">Nom</label>
+            <input type="text" id="name" name="name" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="type">Type de projet</label>
+            <select id="type" name="type">
+              <option value="video">Vidéo</option>
+              <option value="web">Site / Landing</option>
+              <option value="strategie">Idées &amp; Stratégie</option>
+              <option value="autre">Plusieurs / autre</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Votre projet en deux lignes</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Envoyer le brief</button>
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#home" class="brand brand--footer"><span class="brand__dot"></span>SIGNAL</a>
+      <p class="footer__tag">Studio de création — vidéo, web &amp; stratégie.</p>
+      <nav class="footer__links" aria-label="Pied de page">
+        <a href="#services">Services</a>
+        <a href="#work">Réalisations</a>
+        <a href="#method">Méthode</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="footer__copy">© <span id="year"></span> SIGNAL. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
