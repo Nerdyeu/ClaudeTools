@@ -4,7 +4,19 @@ Une plateforme web où l'on **discute directement** avec chaque outil ClaudeTool
 Chaque outil = un prompt système ; le serveur relaie la conversation vers l'API
 Claude **en streaming**, et votre clé API ne quitte jamais le serveur.
 
-## Démarrer en 3 étapes
+## Voir l'interface tout de suite (mode démo, sans clé)
+
+```bash
+cd app
+npm install
+npm start
+```
+
+Sans `ANTHROPIC_API_KEY`, l'app démarre en **mode démo** : le chat renvoie une
+réponse simulée (qui s'écrit en streaming) pour montrer l'interface. Parfait pour
+jeter un œil avant de configurer une clé. Le statut affiche « Mode démo ».
+
+## Démarrer pour de vrai (avec l'API Claude)
 
 ```bash
 cd app

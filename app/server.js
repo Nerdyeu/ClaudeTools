@@ -22,7 +22,9 @@ const MODEL = process.env.CLAUDE_MODEL || "claude-opus-4-8";
 const MAX_TOKENS = Number(process.env.MAX_TOKENS) || 8192;
 
 const hasKey = Boolean(process.env.ANTHROPIC_API_KEY);
-const client = new Anthropic(); // lit ANTHROPIC_API_KEY dans l'environnement
+const DEMO = !hasKey; // sans clé → réponses simulées, pour voir l'interface
+// Le client n'est créé qu'avec une clé (son constructeur échoue sinon).
+const client = hasKey ? new Anthropic() : null;
 
 const app = express();
 app.use(express.json({ limit: "1mb" }));
@@ -31,7 +33,7 @@ app.use(express.static(join(__dirname, "public")));
 // --- Catalogue --------------------------------------------------------------
 
 app.get("/api/tools", (_req, res) => {
-  res.json({ tools: tools.map(publicMeta), ready: hasKey });
+  res.json({ tools: tools.map(publicMeta), mode: DEMO ? "demo" : "live" });
 });
 
 app.get("/api/tools/:id/prompt", (req, res) => {
@@ -47,12 +49,6 @@ app.post("/api/chat", async (req, res) => {
 
   const tool = getTool(toolId);
   if (!tool) return res.status(400).json({ error: "Outil inconnu." });
-
-  if (!hasKey) {
-    return res
-      .status(503)
-      .json({ error: "Clé API absente. Définissez ANTHROPIC_API_KEY puis redémarrez." });
-  }
 
   const cleanMessages = Array.isArray(messages)
     ? messages
@@ -77,6 +73,11 @@ app.post("/api/chat", async (req, res) => {
 
   const send = (obj) => res.write(`data: ${JSON.stringify(obj)}\n\n`);
 
+  // Pas de clé → on simule une réponse pour montrer l'interface.
+  if (DEMO) {
+    return streamDemo(req, res, send, cleanMessages[cleanMessages.length - 1].content);
+  }
+
   const stream = client.messages.stream({
     model: MODEL,
     max_tokens: MAX_TOKENS,
@@ -84,6 +85,8 @@ app.post("/api/chat", async (req, res) => {
     messages: cleanMessages,
   });
 
+  // Détection de déconnexion client : on écoute `res` (et non `req`, dont le
+  // 'close' se déclenche dès que le corps de la requête est lu).
   const onClose = () => {
     try {
       stream.abort();
@@ -91,7 +94,7 @@ app.post("/api/chat", async (req, res) => {
       /* déjà terminé */
     }
   };
-  req.on("close", onClose);
+  res.on("close", onClose);
 
   try {
     for await (const event of stream) {
@@ -109,20 +112,59 @@ app.post("/api/chat", async (req, res) => {
       send({ type: "error", error: err?.message || "Erreur pendant la génération." });
     }
   } finally {
-    req.off("close", onClose);
+    res.off("close", onClose);
     res.end();
   }
 });
 
+// --- Mode démo (sans clé API) ----------------------------------------------
+
+function demoReplyFor(userText) {
+  const t = userText.length > 90 ? userText.slice(0, 87) + "…" : userText;
+  return [
+    "**🔌 Mode démo — sans clé API.** Réponse simulée, juste pour te montrer l'interface : le texte qui s'écrit en direct, la mise en forme, le fil de conversation. Ajoute une clé `ANTHROPIC_API_KEY` pour parler au vrai modèle.",
+    "",
+    `Tu as écrit : « ${t} »`,
+    "",
+    "### Ce que ferait le vrai Studio",
+    "Il cadrerait l'intention avant de produire, avec quelques questions ciblées :",
+    "- **Objectif** — notoriété, vente, ou éducation ?",
+    "- **Audience** — qui doit accrocher dans les 3 premières secondes ?",
+    "- **Ton & format** — court et cash, ou narratif ?",
+    "",
+    "Puis il livrerait un résultat structuré et prêt à copier — souvent en **Option A / B / C** — et terminerait par une ligne **« Pour affiner : »** listant les 2-3 leviers les plus utiles.",
+    "",
+    "*(Fin de la démo. Branche ta clé API et relance pour de vraies réponses.)*",
+  ].join("\n");
+}
+
+async function streamDemo(_req, res, send, userText) {
+  const tokens = demoReplyFor(userText).match(/\s+|\S+/g) || [];
+  let aborted = false;
+  const onClose = () => {
+    aborted = true;
+  };
+  res.on("close", onClose);
+  try {
+    for (const tok of tokens) {
+      if (aborted) return;
+      send({ type: "text", text: tok });
+      await new Promise((r) => setTimeout(r, 16));
+    }
+    if (!aborted) send({ type: "done", demo: true });
+  } finally {
+    res.off("close", onClose);
+    res.end();
+  }
+}
+
 app.listen(PORT, () => {
   console.log(`\n  ClaudeTools → http://localhost:${PORT}`);
-  console.log(`  Modèle : ${MODEL}`);
-  if (!hasKey) {
-    console.log(
-      "\n  ⚠  ANTHROPIC_API_KEY absente — l'interface s'affiche mais le chat renverra une erreur.",
-    );
-    console.log("     Copiez app/.env.example en app/.env, ajoutez votre clé, puis `npm run dev`.\n");
+  if (DEMO) {
+    console.log("  Mode : DÉMO (sans clé API) — le chat renvoie des réponses simulées.");
+    console.log("  Pour de vraies réponses : copiez app/.env.example en app/.env,");
+    console.log("  ajoutez ANTHROPIC_API_KEY, puis relancez `npm run dev`.\n");
   } else {
-    console.log("");
+    console.log(`  Mode : LIVE — modèle ${MODEL}\n`);
   }
 });

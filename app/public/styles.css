@@ -80,6 +80,7 @@ textarea { font: inherit; }
   background: var(--muted-2);
 }
 .status.is-ready::before { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+.status.is-demo::before { background: #ffcf4e; box-shadow: 0 0 8px #ffcf4e; }
 .status.is-down::before { background: #ff6b6b; }
 
 /* ---------- Main ---------- */
